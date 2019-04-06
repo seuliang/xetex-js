@@ -10,17 +10,8 @@ services:
 
 script:
   - docker run \
-  --name emscripten \
-  -v $(pwd):/src \
-  -it trzeci/emscripten-ubuntu:sdk-incoming-64bit \
-  sh -c "apt-get update;apt-get install file -y;make 2>&1 | tee log.txt"
-  
-  
-  
-
-  #- npm install
-  #- make texlive.lst
-  #- npm run test-local
-  
-  
+    --name emscripten \
+    -v $(pwd):/src \
+    -it trzeci/emscripten-ubuntu:sdk-incoming-64bit \
+    sh -c "apt-get update;apt-get install file -y;make 2>&1 | tee log.txt"
   
