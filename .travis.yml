@@ -13,7 +13,7 @@ before_install:
 
 script:
   - docker exec -it  emscripten apt-get update
-  - docker exec -it  emscripten apt-get install file
+  - docker exec -it  emscripten apt-get install file -y
   - docker exec -it  emscripten make 2>&1 | tee log.txt
   - npm install
   - make texlive.lst
