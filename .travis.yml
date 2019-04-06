@@ -14,7 +14,7 @@ script:
   - docker exec -it  emscripten make 2>&1 | tee log.txt
   - npm install
   - make texlive.lst
-  - npm start
+  - npm run test-local
   
   
   
