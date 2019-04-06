@@ -9,9 +9,5 @@ services:
   - docker
 
 script:
-  - docker run \
-    --name emscripten \
-    -v $(pwd):/src \
-    -it trzeci/emscripten-ubuntu:sdk-incoming-64bit \
-    sh -c "apt-get update;apt-get install file -y;make 2>&1 | tee log.txt"
+  - docker run --name emscripten -v $(pwd):/src -it trzeci/emscripten-ubuntu:sdk-incoming-64bit sh -c "apt-get update;apt-get install file -y;make 2>&1 | tee log.txt"
   
