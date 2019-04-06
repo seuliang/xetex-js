@@ -12,9 +12,9 @@ before_install:
   - docker run -dit --name emscripten -v $(pwd):/src trzeci/emscripten-ubuntu bash
 
 script:
-  - docker exec -it  emscripten make 2>&1 | tee log.txt
   - docker exec -it  emscripten apt-get update
   - docker exec -it  emscripten apt-get install file
+  - docker exec -it  emscripten make 2>&1 | tee log.txt
   - npm install
   - make texlive.lst
   - npm run test-local
