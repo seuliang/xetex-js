@@ -12,11 +12,7 @@ before_install:
   - docker run -dit --name emscripten -v $(pwd):/src trzeci/emscripten-ubuntu:sdk-incoming-64bit bash
 
 script:
-  - docker exec -it  emscripten /bin/bash
-  - apt-get update
-  - apt-get install file -y
-  - make 2>&1 | tee log.txt
-  - exit
+  - docker exec -it  emscripten /bin/bash;apt-get update;apt-get install file -y;make 2>&1 | tee log.txt
   - npm install
   - make texlive.lst
   - npm run test-local
