@@ -259,6 +259,7 @@ $(LIB_EXPAT): $(EXPAT_SOURCE_DIR)configure
 $(FONTCONFIG_ARCHIVE):
 	curl -L $(FONTCONFIG_ARCHIVE_URL) -o $@
 
+## 下载FONTCONFIG软件，解压到SOURCES_DIR，打补丁fontconfig-fcstat.c.patch，测试文件存在且名字相同后更新文件完成时间
 $(FONTCONFIG_SOURCE_DIR)configure: $(FONTCONFIG_ARCHIVE) | $(SOURCES_DIR)
 	tar xf $< -C $(SOURCES_DIR)
 	cd $(SOURCES_DIR) && patch -p0 < $$OLDPWD/fontconfig-fcstat.c.patch
